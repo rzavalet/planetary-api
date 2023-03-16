@@ -4,4 +4,6 @@
 
 # GET http://127.0.0.1:5000/parameters?name=Ricardo&age=18
 
-GET http://127.0.0.1:5000/url_variables/Ricardo/10
+# GET http://127.0.0.1:5000/url_variables/Ricardo/10
+
+GET http://127.0.0.1:5000/planets

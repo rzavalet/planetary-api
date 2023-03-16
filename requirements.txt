@@ -1,1 +1,4 @@
-flask==2.2.3
+flask
+Flask-SQLAlchemy
+flask-marshmallow
+marshmallow-sqlalchemy
