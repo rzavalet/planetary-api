@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 
 app = Flask(__name__)
 
@@ -15,6 +15,24 @@ def super_simple():
 @app.route('/error')
 def return_error():
     return jsonify(message = "That resource was not found"), 404
+
+@app.route('/parameters')
+def parameters():
+    name = request.args.get('name')
+    age = int(request.args.get('age'))
+
+    if age < 18:
+        return jsonify(message = "Sorry " + name + ", you are not old enough"), 401
+    else:
+        return jsonify(message = "Welcome, " + name)
+
+
+@app.route('/url_variables/<string:name>/<int:age>')
+def url_variables(name: str, age: int):
+    if age < 18:
+        return jsonify(message = "Sorry " + name + ", you are not old enough"), 401
+    else:
+        return jsonify(message = "Welcome, " + name)
 
 
 if __name__ == '__main__':
